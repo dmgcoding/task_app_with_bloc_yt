@@ -5,15 +5,19 @@ import 'package:task_app/global/typography/typography.dart';
 class PrimaryBtn extends StatelessWidget {
   const PrimaryBtn({
     required this.text,
+    required this.ontap,
     super.key,
   });
 
   final String text;
+  final Function ontap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        ontap();
+      },
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.85,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),

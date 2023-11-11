@@ -31,8 +31,9 @@ class SignupPageBody extends StatelessWidget {
             const SizedBox(height: 20),
             const PwdInputField(),
             const SizedBox(height: 40),
-            const PrimaryBtn(
+            PrimaryBtn(
               text: 'Sign Up',
+              ontap: () {},
             ),
             const SizedBox(height: 20),
             _buildSigninText(context),
