@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task_app/global/constants/app_colors.dart';
 import 'package:task_app/global/typography/typography.dart';
 import 'package:task_app/global/widgets/primary_btn.dart';
+import 'package:task_app/pages/home/views/home.dart';
 import 'package:task_app/pages/signup/views/signup.dart';
 
 import 'email_input_field.dart';
@@ -33,7 +34,10 @@ class SigninPageBody extends StatelessWidget {
             const SizedBox(height: 40),
             PrimaryBtn(
               text: 'Log In',
-              ontap: () {},
+              ontap: () => Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (cxt) => const HomePage()),
+                  (route) => false),
             ),
             const SizedBox(height: 20),
             _buildSignupText(context),

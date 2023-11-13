@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/pages/home/views/home.dart';
+import 'package:task_app/pages/signin/views/signin.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -28,7 +29,7 @@ class _SplashState extends State<_Splash> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (cxt) => const HomePage(),
+        builder: (cxt) => const SigninPage(),
       ),
     );
   }

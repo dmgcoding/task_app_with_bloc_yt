@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "188285573314",
+    "project_id": "task-app-c96a4",
+    "storage_bucket": "task-app-c96a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188285573314:android:50bdfef60bfe115703c35b",
+        "android_client_info": {
+          "package_name": "com.dmgcoding.task_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANsWdE_Zb9s-kV4hA0ZQZ-vZE09Dv_9Vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

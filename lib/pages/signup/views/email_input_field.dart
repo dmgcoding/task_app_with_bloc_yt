@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_app/global/constants/app_colors.dart';
 import 'package:task_app/global/typography/typography.dart';
+import 'package:task_app/pages/signup/blocs/basic_auth/basic_auth_bloc.dart';
 
 class EmailInputField extends StatelessWidget {
   const EmailInputField({
@@ -10,6 +12,8 @@ class EmailInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: (value) =>
+          context.read<BasicAuthBloc>().add(EmailChanged(value)),
       decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 20, vertical: 16),

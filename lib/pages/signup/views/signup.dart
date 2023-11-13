@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/global/constants/app_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_app/lc.dart';
+import 'package:task_app/pages/signup/blocs/basic_auth/basic_auth_bloc.dart';
 
 import 'signup_page_body.dart';
 
@@ -8,7 +11,10 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _Signin();
+    return BlocProvider(
+      create: (context) => BasicAuthBloc(lc()),
+      child: const _Signin(),
+    );
   }
 }
 

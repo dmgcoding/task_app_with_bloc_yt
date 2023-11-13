@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_app/global/constants/app_colors.dart';
 import 'package:task_app/global/typography/typography.dart';
 import 'package:task_app/global/widgets/primary_btn.dart';
 import 'package:task_app/pages/signin/views/signin.dart';
+import 'package:task_app/pages/signup/blocs/basic_auth/basic_auth_bloc.dart';
 
 import 'email_input_field.dart';
 import 'google_signup_btn.dart';
@@ -33,7 +35,7 @@ class SignupPageBody extends StatelessWidget {
             const SizedBox(height: 40),
             PrimaryBtn(
               text: 'Sign Up',
-              ontap: () {},
+              ontap: () => context.read<BasicAuthBloc>().add(FormSubmit()),
             ),
             const SizedBox(height: 20),
             _buildSigninText(context),
