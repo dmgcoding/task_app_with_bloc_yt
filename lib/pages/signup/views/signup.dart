@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:task_app/global/constants/app_colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_app/lc.dart';
+import 'package:task_app/pages/home/views/home.dart';
 import 'package:task_app/pages/signup/blocs/basic_auth/basic_auth_bloc.dart';
+import 'package:task_app/pages/signup/blocs/google_auth/google_auth_bloc.dart';
 
 import 'signup_page_body.dart';
 
@@ -11,8 +13,15 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BasicAuthBloc(lc()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => BasicAuthBloc(lc()),
+        ),
+        BlocProvider(
+          create: (context) => GoogleAuthBloc(lc()),
+        )
+      ],
       child: const _Signin(),
     );
   }
@@ -24,12 +33,24 @@ class _Signin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          _buildBgImg(context),
-          _buildBgOverlay(context),
-          const SignupPageBody(),
-        ],
+      body: BlocListener<GoogleAuthBloc, GoogleAuthState>(
+        listener: (context, state) {
+          if (state is GoogleAuthSuccess) {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (cxt) => const HomePage(),
+                ),
+                (route) => false);
+          }
+        },
+        child: Stack(
+          children: [
+            _buildBgImg(context),
+            _buildBgOverlay(context),
+            const SignupPageBody(),
+          ],
+        ),
       ),
     );
   }
